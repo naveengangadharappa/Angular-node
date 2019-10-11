@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<hr><div class=\"navbar\"><input type=\"text\" name=\"username\" [(ngModel)]=\"uname\" placeholder=\"UserName\"/><button (click)=\" search()\">Search</button></div>\r\n<table >\r\n  <thead >\r\n      <tr>\r\n          <th>Profile</th>\r\n          <th>User-Name</th>\r\n          <th>User-Gender</th>\r\n          <th>User-D-O-B</th>\r\n          <th>User-email</th>\r\n          <th>User-Address</th>\r\n          <th>Edit/delete</th>\r\n      </tr>\r\n  </thead>\r\n  <tbody >\r\n    <tr *ngFor=\"let d of udata\">\r\n     <td><a href=\"http://localhost:3000/public/pictures/{{d.email}}.jpg\"><img src=\"http://localhost:3000/pictures/{{d.email}}.jpg\" style=\"width:200px;height:100px;\"></a><br>\r\n      <form ngNativeValidate enctype=\"multipart/form-data\" method=\"POST\">\r\n        <input\r\n      style=\"display:none\"\r\n      type=\"file\"\r\n      name=\"upic\"\r\n      (change)=\"onFileSelected($event,d.email)\"\r\n      #fileinput/>\r\n      <input style=\"display:none\" type=\"text\" name=\"email\" [(ngModel)]=\"d.email\">\r\n      <button type=\"submit\" (click)=\"fileinput.click()\">Select-Pic</button>\r\n      <!--<input style=\"width:30%\" type=\"submit\" value=\"upload\">_--></form></td>\r\n     <td>{{d.username}}</td>\r\n     <td>{{d.gender}}</td>\r\n     <td>{{d.dob}}</td>\r\n     <td>{{d.email}}</td>\r\n     <td>{{d.country}}, {{d.state}}, {{d.district}}, {{d.postal}}</td>\r\n     <td> <button (click)=\"update(d)\"><b>Edit</b></button><a (click)=\"delete(d.email)\"><b>Delete</b></a></td>\r\n    </tr>\r\n</tbody>\r\n</table>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<hr><div class=\"navbar\"><input type=\"text\" name=\"username\" [(ngModel)]=\"uname\" placeholder=\"UserName\"/><button (click)=\" search()\">Search</button></div>\r\n<table >\r\n  <thead >\r\n      <tr>\r\n          <th>Profile</th>\r\n          <th>User-Name</th>\r\n          <th>User-Gender</th>\r\n          <th>User-D-O-B</th>\r\n          <th>User-email</th>\r\n          <th>User-Address</th>\r\n          <th>Edit/delete</th>\r\n      </tr>\r\n  </thead>\r\n  <tbody >\r\n    <tr *ngFor=\"let d of udata\">\r\n     <td><a href=\"http://115.124.109.193:3000/public/pictures/{{d.email}}.jpg\"><img src=\"http://localhost:3000/pictures/{{d.email}}.jpg\" style=\"width:200px;height:100px;\"></a><br>\r\n      <form ngNativeValidate enctype=\"multipart/form-data\" method=\"POST\">\r\n        <input\r\n      style=\"display:none\"\r\n      type=\"file\"\r\n      name=\"upic\"\r\n      (change)=\"onFileSelected($event,d.email)\"\r\n      #fileinput/>\r\n      <input style=\"display:none\" type=\"text\" name=\"email\" [(ngModel)]=\"d.email\">\r\n      <button type=\"submit\" (click)=\"fileinput.click()\">Select-Pic</button>\r\n      <!--<input style=\"width:30%\" type=\"submit\" value=\"upload\">_--></form></td>\r\n     <td>{{d.username}}</td>\r\n     <td>{{d.gender}}</td>\r\n     <td>{{d.dob}}</td>\r\n     <td>{{d.email}}</td>\r\n     <td>{{d.country}}, {{d.state}}, {{d.district}}, {{d.postal}}</td>\r\n     <td> <button (click)=\"update(d)\"><b>Edit</b></button><a (click)=\"delete(d.email)\"><b>Delete</b></a></td>\r\n    </tr>\r\n</tbody>\r\n</table>\r\n");
 
 /***/ }),
 
@@ -722,7 +722,7 @@ let DispuserComponent = class DispuserComponent {
         else {
             var flg = confirm('Are you willing to change your profile picture ??');
             if (flg) {
-                var url = 'http://localhost:3000/fileupload';
+                var url = 'http://115.124.109.193:3000/fileupload';
                 var req = {
                     method: 'POST',
                     body: fd
@@ -908,7 +908,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const urll = 'http://localhost:3000/insertuser';
+const urll = 'http://115.124.109.193:3000/insertuser';
 let InsertComponent = class InsertComponent {
     constructor(http, rout) {
         this.http = http;
@@ -986,7 +986,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const urll = 'http://localhost:3000/update';
+const urll = 'http://115.124.109.193:3000/update';
 let UpdateComponent = class UpdateComponent {
     constructor(http, rout, sharedservice) {
         this.http = http;
@@ -1049,15 +1049,15 @@ let FreeApiServices = class FreeApiServices {
         this.httpclient = httpclient;
     }
     getcomments() {
-        return this.httpclient.get('http://localhost:3000/users');
+        return this.httpclient.get('http://115.124.109.193:3000/users');
     }
     getusers(n) {
-        var url = 'http://localhost:3000/search/';
+        var url = 'http://115.124.109.193:3000/search/';
         url = url + n;
         return this.httpclient.get(url);
     }
     deleteuser(email) {
-        var url = 'http://localhost:3000/delete/';
+        var url = 'http://115.124.109.193:3000/delete/';
         var url = url + email;
         return this.httpclient.get(url);
     }
