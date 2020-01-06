@@ -16,8 +16,7 @@ function searchbyusername(username){
     if(username=='0')
     {
         mysqlconnection.query(sql,(err,rows,fields)=>{
-            if(!err){
-                console.log("fetch query is executed in Search"); 
+            if(!err){ 
                 resolve(rows);
                 }
             else{
@@ -72,7 +71,6 @@ function updateuser(data){
             //console.log("Record deleted successfully");
             //var sql="insert into users(username,gender,dob,email,country,state,district,postal,password) values('"+req.body.uname+"','"+req.body.ugender+"','"+req.body.udob+"','"+req.body.uemail+"','"+req.body.ucountry+"','"+req.body.ustate+"','"+req.body.udistrict+"',"+req.body.upin+",'"+req.body.upasswd+"')";
             var sql="insert into users(username,gender,dob,email,country,state,district,postal,password) values('"+data.username+"','"+data.gender+"','"+data.dob+"','"+data.email+"','"+data.country+"','"+data.state+"','"+data.district+"',"+data.postal+",'"+data.password+"')";
-console.log("update query entered");
 mysqlconnection.query(sql,function(err){
         if(!err){
         //resolve({data:"success"});
@@ -134,8 +132,7 @@ var insertuser=function(userdata){
 
     
 var emailfunc=function(toemail){
-    console.log(toemail)
-    var mailOptions = {
+       var mailOptions = {
         from: 'booksdealingsystem@gmail.com',
         to: toemail,
         subject: 'Demo Angular App',
